@@ -49,17 +49,23 @@ A high-fidelity, real-time collaborative workspace designed for developers. This
 
 
 ## Server Setup :
-Navigate to the server directory: cd server
-Install dependencies: npm install
-Create a .env file in the server root with:
-PORT=8080
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-GEMINI_API_KEY=your_gemini_api_key
-Start the backend server: npm run dev
+<h3>Server Setup</h3>
+<ul>
+  <li>Navigate to the server directory: <code>cd server</code></li>
+  <li>Install dependencies: <code>npm install</code></li>
+  <li>Create a <code>.env</code> file in the server root containing:
+    <br><code>PORT=8080</code>
+    <br><code>MONGO_URI=your_mongodb_connection_string</code>
+    <br><code>JWT_SECRET=your_jwt_secret</code>
+    <br><code>GEMINI_API_KEY=your_gemini_api_key</code>
+  </li>
+  <li>Start the backend server: <code>npm run dev</code></li>
+</ul>
 
-## Client Setup:
-Navigate to the client directory: cd ../client
-Install dependencies: npm install
-Start the Vite development server: npm run dev
-Open the app in your browser at: http://localhost:5173
+<h3>Client Setup</h3>
+<ul>
+  <li>Navigate to the client directory: <code>cd ../client</code></li>
+  <li>Install dependencies: <code>npm install</code></li>
+  <li>Start the Vite development server: <code>npm run dev</code></li>
+  <li>Open the app in your browser at: <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></li>
+</ul>
