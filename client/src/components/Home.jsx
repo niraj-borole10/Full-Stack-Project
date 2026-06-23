@@ -13,21 +13,22 @@ function Home() {
     }
 
     return (
-        <div className='h-screen flex justify-center items-center'>
-            <div className='bg-slate-800 p-10 rounded-xl flex flex-col gap-4 w-[400px]'>
-                <h1 className='text-3xl font-bold text-center'>
-                    Collaborative Code Editor
+        <div className='h-screen flex justify-center items-center bg-[#0D1117]'>
+            <div className='bg-[#161B22] border border-[#30363D] p-8 rounded-[12px] flex flex-col gap-4 w-[360px] shadow-[0_1px_2px_rgba(0,0,0,0.25)]'>
+                <h1 className='text-lg font-bold text-center text-[#E6EDF3] uppercase tracking-wider'>
+                    Code Collaborator
                 </h1>
+                
                 <input
                     type='text'
                     placeholder='Enter Room ID'
-                    className='p-3 rounded text-black'
+                    className='px-3 py-2 bg-[#1C2128] border border-[#30363D] rounded-[10px] text-[#E6EDF3] placeholder-[#8B949E] outline-none focus:border-[#3B82F6] text-xs'
                     value={roomId}
                     onChange={(e) => setRoomId(e.target.value)}
                 />
 
                 <button
-                    className='bg-green-500 p-3 rounded font-bold'
+                    className='bg-[#3B82F6] hover:bg-[#2563EB] text-white py-2 px-3 rounded-[10px] text-xs font-semibold transition-all duration-200 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.25)]'
                     onClick={joinRoom}
                 >
                     Join Room

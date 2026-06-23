@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 function Register() {
     const navigate = useNavigate()
@@ -27,62 +28,68 @@ function Register() {
                 formData
             )
 
-            alert('Registration Successful')
+            toast.success("Account Created Successfully")
 
             navigate('/')
         } catch (error) {
-            alert(error.response?.data?.message || 'Error')
+            toast.error(error.response?.data?.message)
         }
     }
 
     return (
-        <div className='h-screen flex justify-center items-center bg-slate-900'>
-            <form
-                onSubmit={handleSubmit}
-                className='bg-slate-800 p-8 rounded-xl flex flex-col gap-4 w-[400px]'
-            >
-                <h1 className='text-3xl font-bold text-center text-white'>
+        <div className="min-h-screen bg-[#0D1117] flex items-center justify-center">
+            {/* Card Wrapper */}
+            <div className="bg-[#161B22] border border-[#30363D] p-8 rounded-[12px] flex flex-col gap-4 w-[360px] shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                <h1 className="text-lg font-bold text-center text-[#E6EDF3] uppercase tracking-wider">
                     Create Account
                 </h1>
 
-                <input
-                    type='text'
-                    name='name'
-                    placeholder='Enter Name'
-                    className='p-3 rounded'
-                    onChange={handleChange}
-                />
+                <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col gap-3.5"
+                >
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Full Name"
+                        className="px-3 py-2 bg-[#1C2128] border border-[#30363D] rounded-[10px] text-[#E6EDF3] placeholder-[#8B949E] outline-none focus:border-[#3B82F6] text-xs"
+                        onChange={handleChange}
+                        required
+                    />
 
-                <input
-                    type='email'
-                    name='email'
-                    placeholder='Enter Email'
-                    className='p-3 rounded'
-                    onChange={handleChange}
-                />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        className="px-3 py-2 bg-[#1C2128] border border-[#30363D] rounded-[10px] text-[#E6EDF3] placeholder-[#8B949E] outline-none focus:border-[#3B82F6] text-xs"
+                        onChange={handleChange}
+                        required
+                    />
 
-                <input
-                    type='password'
-                    name='password'
-                    placeholder='Create Password'
-                    className='p-3 rounded'
-                    onChange={handleChange}
-                />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        className="px-3 py-2 bg-[#1C2128] border border-[#30363D] rounded-[10px] text-[#E6EDF3] placeholder-[#8B949E] outline-none focus:border-[#3B82F6] text-xs"
+                        onChange={handleChange}
+                        required
+                    />
 
-                <button className='bg-green-500 p-3 rounded font-bold text-white'>
-                    Register
-                </button>
+                    <button className="bg-[#3B82F6] hover:bg-[#2563EB] text-white py-2 px-3 rounded-[10px] text-xs font-semibold transition-all duration-200 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                        Register
+                    </button>
+                </form>
 
-                <p className='text-center text-white'>
+                <p className="text-center text-xs font-medium text-[#8B949E] mt-1">
                     Already have an account?{' '}
                     <Link
-                        to='/'
-                        className='text-blue-400'
+                        to="/"
+                        className="text-[#3B82F6] hover:text-[#2563EB]"
                     >
                         Login
                     </Link>
                 </p>
-            </form>
+            </div>
         </div>
     )
 }

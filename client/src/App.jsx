@@ -6,7 +6,7 @@ import EditorPage from './components/EditorPage'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword'
-
+import { ToastContainer } from 'react-toastify'
 function App() {
   return (
     <BrowserRouter>
@@ -29,6 +29,12 @@ function App() {
         />
 
       </Routes>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        theme = "dark"
+      />
+
     </BrowserRouter>
   )
 }
