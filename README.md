@@ -47,8 +47,6 @@ A high-fidelity, real-time collaborative workspace designed for developers. This
 * MongoDB database instance
 * Google Gemini API Key
 
-
-## Server Setup :
 <h3>Server Setup</h3>
 <ul>
   <li>Navigate to the server directory: <code>cd server</code></li>
