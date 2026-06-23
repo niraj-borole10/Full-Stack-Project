@@ -28,20 +28,19 @@ A high-fidelity, real-time collaborative workspace designed for developers. This
 * **Styling Theme**: Developer Dark (based on GitHub `#0D1117` main backgrounds, `#161B22` sidebar card containers, `#30363D` thin borders, and solid Accent colors).
 ---
 ## 📦 Project Structure
-##├── client/                     # Frontend React Application
-##│   ├── src/
-##│   │   ├── components/         # React Components (EditorPage, Chat, Home)
-##│   │   ├── pages/              # Pages (Login, Register, ForgotPassword)
-##│   │   ├── index.css           # Core Tailwind & custom variables theme
-##│   │   └── socket.js           # Socket.io Client Setup
-##│   └── package.json
-##│
-##└── server/                     # Backend Node/Express Application
-##    ├── config/                 # Database configuration (MongoDB Connect)
-##    ├── controllers/            # Business Logic Controllers (aiController)
-##    ├── routes/                 # Router Endpoints (aiRoutes, authRoutes)
-##    ├── .env                    # Server Environment Variables
-##    └── index.js                # Server Entry Point & Socket events mapping
+* **client/** (Frontend React Application)
+  * **src/**
+    * **components/** (React Components: EditorPage, Chat, Home)
+    * **pages/** (Pages: Login, Register, ForgotPassword)
+    * **index.css** (Core Tailwind & custom variables theme)
+    * **socket.js** (Socket.io Client Setup)
+  * **package.json**
+* **server/** (Backend Node/Express Application)
+  * **config/** (Database configuration: MongoDB Connect)
+  * **controllers/** (Business Logic Controllers: aiController)
+  * **routes/** (Router Endpoints: aiRoutes, authRoutes)
+  * **.env** (Server Environment Variables)
+  * **index.js** (Server Entry Point & Socket events mapping)
 ## ⚙️ Getting Started
 ### Prerequisites
 * Node.js (v18+ recommended)
