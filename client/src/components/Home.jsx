@@ -12,6 +12,11 @@ function Home() {
         navigate(`/editor/${roomId}`)
     }
 
+    const handleLogout = () => {
+        sessionStorage.clear()
+        navigate('/')
+    }
+
     return (
         <div className='h-screen flex justify-center items-center bg-[#0D1117]'>
             <div className='bg-[#161B22] border border-[#30363D] p-8 rounded-[12px] flex flex-col gap-4 w-[360px] shadow-[0_1px_2px_rgba(0,0,0,0.25)]'>
@@ -32,6 +37,13 @@ function Home() {
                     onClick={joinRoom}
                 >
                     Join Room
+                </button>
+
+                <button
+                    className='bg-[#EF4444] hover:bg-[#DC2626] text-white py-2 px-3 rounded-[10px] text-xs font-semibold transition-all duration-200 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.25)]'
+                    onClick={handleLogout}
+                >
+                    Logout
                 </button>
             </div>
         </div>

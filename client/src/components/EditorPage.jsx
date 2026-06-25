@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
 import socket from "../socket";
 import Chat from "./Chat";
+import { API_BASE_URL } from "../config";
 
 // Helper to parse bold and backticks inside a single string
 function renderFormattedText(text) {
@@ -83,6 +84,7 @@ function AIResponseDisplay({ text }) {
 
 function EditorPage() {
     const { roomId } = useParams();
+    const navigate = useNavigate();
     const [code, setCode] = useState("// Start Coding Here");
     const username = sessionStorage.getItem("username") || "Anonymous";
     
@@ -218,7 +220,7 @@ function EditorPage() {
                 if (token.isCancellationRequested) return;
 
                 try {
-                    const response = await axios.post("http://localhost:8080/api/ai/autocomplete", {
+                    const response = await axios.post(`${API_BASE_URL}/api/ai/autocomplete`, {
                         textBeforeCursor,
                         textAfterCursor,
                         language: model.getLanguageId()
@@ -265,7 +267,7 @@ function EditorPage() {
         setAiResponse("");
         
         try {
-            const response = await axios.post("http://localhost:8080/api/ai/explain", {
+            const response = await axios.post(`${API_BASE_URL}/api/ai/explain`, {
                 code,
                 language: language
             });
@@ -285,7 +287,7 @@ function EditorPage() {
         setAiResponse("");
         
         try {
-            const response = await axios.post("http://localhost:8080/api/ai/review", {
+            const response = await axios.post(`${API_BASE_URL}/api/ai/review`, {
                 code,
                 language: language
             });
@@ -316,6 +318,11 @@ function EditorPage() {
         document.body.appendChild(element);
         element.click();
         document.body.removeChild(element);
+    };
+
+    const handleLogout = () => {
+        sessionStorage.clear();
+        navigate("/");
     };
 
     return (
@@ -362,6 +369,12 @@ function EditorPage() {
                             <span className="w-2 h-2 rounded-full bg-[#22C55E]"></span>
                             {username}
                         </div>
+                        <button
+                            onClick={handleLogout}
+                            className="bg-[#EF4444] hover:bg-[#DC2626] text-white text-xs px-3 py-1.5 rounded-[10px] font-semibold transition-all duration-200 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.25)] ml-2"
+                        >
+                            Logout
+                        </button>
                     </div>
                 </div>
 
